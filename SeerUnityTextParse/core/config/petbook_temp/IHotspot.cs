@@ -2,15 +2,15 @@
 
 namespace core.config.petbook_temp
 {
-	// Token: 0x02001F53 RID: 8019
+	// Token: 0x02002046 RID: 8262
 	public class IHotspot
 	{
-		// Token: 0x17001C23 RID: 7203
-		// (get) Token: 0x0600F08E RID: 61582 RVA: 0x003F4F67 File Offset: 0x003F3167
-		// (set) Token: 0x0600F08F RID: 61583 RVA: 0x003F4F6F File Offset: 0x003F316F
+		// Token: 0x17001D07 RID: 7431
+		// (get) Token: 0x0600F7E8 RID: 63464 RVA: 0x0040DC13 File Offset: 0x0040BE13
+		// (set) Token: 0x0600F7E9 RID: 63465 RVA: 0x0040DC1B File Offset: 0x0040BE1B
 		public IItem item { get; set; }
 
-		// Token: 0x0600F090 RID: 61584 RVA: 0x003F4F78 File Offset: 0x003F3178
+		// Token: 0x0600F7EA RID: 63466 RVA: 0x0040DC24 File Offset: 0x0040BE24
 		public void Parse(byte[] bytes, ref int byteIndex)
 		{
 			if (ByteUtil.ReadBoolean(bytes, ref byteIndex))

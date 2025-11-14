@@ -2,20 +2,20 @@
 
 namespace core.config.petbook
 {
-	// Token: 0x02001F6A RID: 8042
+	// Token: 0x0200205D RID: 8285
 	public class IItem
 	{
-		// Token: 0x17001C6C RID: 7276
-		// (get) Token: 0x0600F14E RID: 61774 RVA: 0x003F5EE3 File Offset: 0x003F40E3
-		// (set) Token: 0x0600F14F RID: 61775 RVA: 0x003F5EEB File Offset: 0x003F40EB
+		// Token: 0x17001D4F RID: 7503
+		// (get) Token: 0x0600F8A6 RID: 63654 RVA: 0x0040EB73 File Offset: 0x0040CD73
+		// (set) Token: 0x0600F8A7 RID: 63655 RVA: 0x0040EB7B File Offset: 0x0040CD7B
 		public string intro { get; set; }
 
-		// Token: 0x17001C6D RID: 7277
-		// (get) Token: 0x0600F150 RID: 61776 RVA: 0x003F5EF4 File Offset: 0x003F40F4
-		// (set) Token: 0x0600F151 RID: 61777 RVA: 0x003F5EFC File Offset: 0x003F40FC
+		// Token: 0x17001D50 RID: 7504
+		// (get) Token: 0x0600F8A8 RID: 63656 RVA: 0x0040EB84 File Offset: 0x0040CD84
+		// (set) Token: 0x0600F8A9 RID: 63657 RVA: 0x0040EB8C File Offset: 0x0040CD8C
 		public IPlaceItem[] place { get; set; }
 
-		// Token: 0x0600F152 RID: 61778 RVA: 0x003F5F08 File Offset: 0x003F4108
+		// Token: 0x0600F8AA RID: 63658 RVA: 0x0040EB98 File Offset: 0x0040CD98
 		public void Parse(byte[] bytes, ref int byteIndex)
 		{
 			this.intro = ByteUtil.ReadUTFByte(bytes, (int)ByteUtil.ReadUnsignedShort(bytes, ref byteIndex), ref byteIndex);

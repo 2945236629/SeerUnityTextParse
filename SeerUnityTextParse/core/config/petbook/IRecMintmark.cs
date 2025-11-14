@@ -2,15 +2,15 @@
 
 namespace core.config.petbook
 {
-	// Token: 0x02001F6E RID: 8046
+	// Token: 0x02002061 RID: 8289
 	public class IRecMintmark
 	{
-		// Token: 0x17001C80 RID: 7296
-		// (get) Token: 0x0600F17E RID: 61822 RVA: 0x003F625E File Offset: 0x003F445E
-		// (set) Token: 0x0600F17F RID: 61823 RVA: 0x003F6266 File Offset: 0x003F4466
+		// Token: 0x17001D62 RID: 7522
+		// (get) Token: 0x0600F8D4 RID: 63700 RVA: 0x0040EECA File Offset: 0x0040D0CA
+		// (set) Token: 0x0600F8D5 RID: 63701 RVA: 0x0040EED2 File Offset: 0x0040D0D2
 		public IPlaceItem[] place { get; set; }
 
-		// Token: 0x0600F180 RID: 61824 RVA: 0x003F6270 File Offset: 0x003F4470
+		// Token: 0x0600F8D6 RID: 63702 RVA: 0x0040EEDC File Offset: 0x0040D0DC
 		public void Parse(byte[] bytes, ref int byteIndex)
 		{
 			if (ByteUtil.ReadBoolean(bytes, ref byteIndex))

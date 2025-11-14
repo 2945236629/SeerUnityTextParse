@@ -28,12 +28,20 @@ if (!Directory.Exists(FOLDER_PATH_OUTPUT))
 }
 
 // 解析出错的加入黑名单
-HashSet<string> blackList = [
+HashSet<string> blackListName = [
     "ChapterpointTemp",
     "NewMonsterLevelTemp",
     "PvpBanExpert",
     "PvpVote",
     "Redbadge",
+    ];
+HashSet<string> blackListNameSpace = [
+    "core.config.petbook_temp",
+    "core.config.petbook_bisaifu",
+    "core.config.petbook",
+    "core.config.itemsOptimizeCatItems26",
+    "core.config.battle_effects",
+    "core.config.aimat",
     ];
 
 var assemblies = AppDomain.CurrentDomain.GetAssemblies();
@@ -42,9 +50,9 @@ foreach (var a in assemblies)
     var types = a.GetTypes();
     foreach (var t in types)
     {
-        if (!t.IsAbstract && t.Namespace == "core.config")
+        if (!t.IsAbstract && t.Namespace != null && t.Namespace.StartsWith("core.config"))
         {
-            if (blackList.Contains(t.Name)) continue;
+            if (blackListName.Contains(t.Name) || blackListNameSpace.Contains(t.Namespace)) continue;
             try
             {
                 var obj = a.CreateInstance(t.FullName);
@@ -59,7 +67,11 @@ foreach (var a in assemblies)
                     if (m.Name == "Parse" && m.GetParameters().Length == 1)
                     {
                         m.Invoke(obj, [data]);
-                        File.WriteAllText($"{FOLDER_PATH_OUTPUT}{fileName}.json", JsonSerializer.Serialize(obj.GetType().GetMethod("getItems").Invoke(obj, []), serOpt));
+                        var getItems = obj.GetType().GetMethod("getItems");
+                        File.WriteAllText($"{FOLDER_PATH_OUTPUT}{fileName}.json",
+                            JsonSerializer.Serialize(
+                                getItems == null ? obj : getItems.Invoke(obj, [])
+                            , serOpt));
                         break;
                     }
                 }

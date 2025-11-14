@@ -2,30 +2,30 @@
 
 namespace core.config.petbook_bisaifu
 {
-	// Token: 0x02001F5C RID: 8028
+	// Token: 0x0200204F RID: 8271
 	public class IBranchItem
 	{
-		// Token: 0x17001C41 RID: 7233
-		// (get) Token: 0x0600F0DC RID: 61660 RVA: 0x003F5573 File Offset: 0x003F3773
-		// (set) Token: 0x0600F0DD RID: 61661 RVA: 0x003F557B File Offset: 0x003F377B
+		// Token: 0x17001D25 RID: 7461
+		// (get) Token: 0x0600F836 RID: 63542 RVA: 0x0040E21F File Offset: 0x0040C41F
+		// (set) Token: 0x0600F837 RID: 63543 RVA: 0x0040E227 File Offset: 0x0040C427
 		public string intro { get; set; }
 
-		// Token: 0x17001C42 RID: 7234
-		// (get) Token: 0x0600F0DE RID: 61662 RVA: 0x003F5584 File Offset: 0x003F3784
-		// (set) Token: 0x0600F0DF RID: 61663 RVA: 0x003F558C File Offset: 0x003F378C
+		// Token: 0x17001D26 RID: 7462
+		// (get) Token: 0x0600F838 RID: 63544 RVA: 0x0040E230 File Offset: 0x0040C430
+		// (set) Token: 0x0600F839 RID: 63545 RVA: 0x0040E238 File Offset: 0x0040C438
 		public IPlaceItem[] place { get; set; }
 
-		// Token: 0x17001C43 RID: 7235
-		// (get) Token: 0x0600F0E0 RID: 61664 RVA: 0x003F5595 File Offset: 0x003F3795
-		// (set) Token: 0x0600F0E1 RID: 61665 RVA: 0x003F559D File Offset: 0x003F379D
+		// Token: 0x17001D27 RID: 7463
+		// (get) Token: 0x0600F83A RID: 63546 RVA: 0x0040E241 File Offset: 0x0040C441
+		// (set) Token: 0x0600F83B RID: 63547 RVA: 0x0040E249 File Offset: 0x0040C449
 		public string title { get; set; }
 
-		// Token: 0x17001C44 RID: 7236
-		// (get) Token: 0x0600F0E2 RID: 61666 RVA: 0x003F55A6 File Offset: 0x003F37A6
-		// (set) Token: 0x0600F0E3 RID: 61667 RVA: 0x003F55AE File Offset: 0x003F37AE
+		// Token: 0x17001D28 RID: 7464
+		// (get) Token: 0x0600F83C RID: 63548 RVA: 0x0040E252 File Offset: 0x0040C452
+		// (set) Token: 0x0600F83D RID: 63549 RVA: 0x0040E25A File Offset: 0x0040C45A
 		public int ID { get; set; }
 
-		// Token: 0x0600F0E4 RID: 61668 RVA: 0x003F55B8 File Offset: 0x003F37B8
+		// Token: 0x0600F83E RID: 63550 RVA: 0x0040E264 File Offset: 0x0040C464
 		public void Parse(byte[] bytes, ref int byteIndex)
 		{
 			this.ID = ByteUtil.ReadSignedInt(bytes, ref byteIndex);

@@ -2,30 +2,30 @@
 
 namespace core.config.petbook_temp
 {
-	// Token: 0x02001F56 RID: 8022
+	// Token: 0x02002049 RID: 8265
 	public class IPetDataItem : IConfigItem
 	{
-		// Token: 0x17001C2B RID: 7211
-		// (get) Token: 0x0600F0A4 RID: 61604 RVA: 0x003F50FE File Offset: 0x003F32FE
-		// (set) Token: 0x0600F0A5 RID: 61605 RVA: 0x003F5106 File Offset: 0x003F3306
+		// Token: 0x17001D0F RID: 7439
+		// (get) Token: 0x0600F7FE RID: 63486 RVA: 0x0040DDAA File Offset: 0x0040BFAA
+		// (set) Token: 0x0600F7FF RID: 63487 RVA: 0x0040DDB2 File Offset: 0x0040BFB2
 		public int[] TagB { get; set; }
 
-		// Token: 0x17001C2C RID: 7212
-		// (get) Token: 0x0600F0A6 RID: 61606 RVA: 0x003F510F File Offset: 0x003F330F
-		// (set) Token: 0x0600F0A7 RID: 61607 RVA: 0x003F5117 File Offset: 0x003F3317
+		// Token: 0x17001D10 RID: 7440
+		// (get) Token: 0x0600F800 RID: 63488 RVA: 0x0040DDBB File Offset: 0x0040BFBB
+		// (set) Token: 0x0600F801 RID: 63489 RVA: 0x0040DDC3 File Offset: 0x0040BFC3
 		public int id { get; set; }
 
-		// Token: 0x17001C2D RID: 7213
-		// (get) Token: 0x0600F0A8 RID: 61608 RVA: 0x003F5120 File Offset: 0x003F3320
-		// (set) Token: 0x0600F0A9 RID: 61609 RVA: 0x003F5128 File Offset: 0x003F3328
+		// Token: 0x17001D11 RID: 7441
+		// (get) Token: 0x0600F802 RID: 63490 RVA: 0x0040DDCC File Offset: 0x0040BFCC
+		// (set) Token: 0x0600F803 RID: 63491 RVA: 0x0040DDD4 File Offset: 0x0040BFD4
 		public int pid { get; set; }
 
-		// Token: 0x17001C2E RID: 7214
-		// (get) Token: 0x0600F0AA RID: 61610 RVA: 0x003F5131 File Offset: 0x003F3331
-		// (set) Token: 0x0600F0AB RID: 61611 RVA: 0x003F5139 File Offset: 0x003F3339
+		// Token: 0x17001D12 RID: 7442
+		// (get) Token: 0x0600F804 RID: 63492 RVA: 0x0040DDDD File Offset: 0x0040BFDD
+		// (set) Token: 0x0600F805 RID: 63493 RVA: 0x0040DDE5 File Offset: 0x0040BFE5
 		public int TagA { get; set; }
 
-		// Token: 0x0600F0AC RID: 61612 RVA: 0x003F5144 File Offset: 0x003F3344
+		// Token: 0x0600F806 RID: 63494 RVA: 0x0040DDF0 File Offset: 0x0040BFF0
 		public void Parse(byte[] bytes, ref int byteIndex)
 		{
 			this.TagA = ByteUtil.ReadSignedInt(bytes, ref byteIndex);

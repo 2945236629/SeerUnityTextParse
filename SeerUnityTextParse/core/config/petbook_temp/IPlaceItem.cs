@@ -2,55 +2,55 @@
 
 namespace core.config.petbook_temp
 {
-	// Token: 0x02001F57 RID: 8023
+	// Token: 0x0200204A RID: 8266
 	public class IPlaceItem
 	{
-		// Token: 0x17001C2F RID: 7215
-		// (get) Token: 0x0600F0AE RID: 61614 RVA: 0x003F51B8 File Offset: 0x003F33B8
-		// (set) Token: 0x0600F0AF RID: 61615 RVA: 0x003F51C0 File Offset: 0x003F33C0
+		// Token: 0x17001D13 RID: 7443
+		// (get) Token: 0x0600F808 RID: 63496 RVA: 0x0040DE64 File Offset: 0x0040C064
+		// (set) Token: 0x0600F809 RID: 63497 RVA: 0x0040DE6C File Offset: 0x0040C06C
 		public string Desc { get; set; }
 
-		// Token: 0x17001C30 RID: 7216
-		// (get) Token: 0x0600F0B0 RID: 61616 RVA: 0x003F51C9 File Offset: 0x003F33C9
-		// (set) Token: 0x0600F0B1 RID: 61617 RVA: 0x003F51D1 File Offset: 0x003F33D1
+		// Token: 0x17001D14 RID: 7444
+		// (get) Token: 0x0600F80A RID: 63498 RVA: 0x0040DE75 File Offset: 0x0040C075
+		// (set) Token: 0x0600F80B RID: 63499 RVA: 0x0040DE7D File Offset: 0x0040C07D
 		public string Go { get; set; }
 
-		// Token: 0x17001C31 RID: 7217
-		// (get) Token: 0x0600F0B2 RID: 61618 RVA: 0x003F51DA File Offset: 0x003F33DA
-		// (set) Token: 0x0600F0B3 RID: 61619 RVA: 0x003F51E2 File Offset: 0x003F33E2
+		// Token: 0x17001D15 RID: 7445
+		// (get) Token: 0x0600F80C RID: 63500 RVA: 0x0040DE86 File Offset: 0x0040C086
+		// (set) Token: 0x0600F80D RID: 63501 RVA: 0x0040DE8E File Offset: 0x0040C08E
 		public string Redirect { get; set; }
 
-		// Token: 0x17001C32 RID: 7218
-		// (get) Token: 0x0600F0B4 RID: 61620 RVA: 0x003F51EB File Offset: 0x003F33EB
-		// (set) Token: 0x0600F0B5 RID: 61621 RVA: 0x003F51F3 File Offset: 0x003F33F3
+		// Token: 0x17001D16 RID: 7446
+		// (get) Token: 0x0600F80E RID: 63502 RVA: 0x0040DE97 File Offset: 0x0040C097
+		// (set) Token: 0x0600F80F RID: 63503 RVA: 0x0040DE9F File Offset: 0x0040C09F
 		public int[] Mintmark { get; set; }
 
-		// Token: 0x17001C33 RID: 7219
-		// (get) Token: 0x0600F0B6 RID: 61622 RVA: 0x003F51FC File Offset: 0x003F33FC
-		// (set) Token: 0x0600F0B7 RID: 61623 RVA: 0x003F5204 File Offset: 0x003F3404
+		// Token: 0x17001D17 RID: 7447
+		// (get) Token: 0x0600F810 RID: 63504 RVA: 0x0040DEA8 File Offset: 0x0040C0A8
+		// (set) Token: 0x0600F811 RID: 63505 RVA: 0x0040DEB0 File Offset: 0x0040C0B0
 		public int ID { get; set; }
 
-		// Token: 0x17001C34 RID: 7220
-		// (get) Token: 0x0600F0B8 RID: 61624 RVA: 0x003F520D File Offset: 0x003F340D
-		// (set) Token: 0x0600F0B9 RID: 61625 RVA: 0x003F5215 File Offset: 0x003F3415
+		// Token: 0x17001D18 RID: 7448
+		// (get) Token: 0x0600F812 RID: 63506 RVA: 0x0040DEB9 File Offset: 0x0040C0B9
+		// (set) Token: 0x0600F813 RID: 63507 RVA: 0x0040DEC1 File Offset: 0x0040C0C1
 		public int ImageID { get; set; }
 
-		// Token: 0x17001C35 RID: 7221
-		// (get) Token: 0x0600F0BA RID: 61626 RVA: 0x003F521E File Offset: 0x003F341E
-		// (set) Token: 0x0600F0BB RID: 61627 RVA: 0x003F5226 File Offset: 0x003F3426
+		// Token: 0x17001D19 RID: 7449
+		// (get) Token: 0x0600F814 RID: 63508 RVA: 0x0040DECA File Offset: 0x0040C0CA
+		// (set) Token: 0x0600F815 RID: 63509 RVA: 0x0040DED2 File Offset: 0x0040C0D2
 		public int Label { get; set; }
 
-		// Token: 0x17001C36 RID: 7222
-		// (get) Token: 0x0600F0BC RID: 61628 RVA: 0x003F522F File Offset: 0x003F342F
-		// (set) Token: 0x0600F0BD RID: 61629 RVA: 0x003F5237 File Offset: 0x003F3437
+		// Token: 0x17001D1A RID: 7450
+		// (get) Token: 0x0600F816 RID: 63510 RVA: 0x0040DEDB File Offset: 0x0040C0DB
+		// (set) Token: 0x0600F817 RID: 63511 RVA: 0x0040DEE3 File Offset: 0x0040C0E3
 		public int monID { get; set; }
 
-		// Token: 0x17001C37 RID: 7223
-		// (get) Token: 0x0600F0BE RID: 61630 RVA: 0x003F5240 File Offset: 0x003F3440
-		// (set) Token: 0x0600F0BF RID: 61631 RVA: 0x003F5248 File Offset: 0x003F3448
+		// Token: 0x17001D1B RID: 7451
+		// (get) Token: 0x0600F818 RID: 63512 RVA: 0x0040DEEC File Offset: 0x0040C0EC
+		// (set) Token: 0x0600F819 RID: 63513 RVA: 0x0040DEF4 File Offset: 0x0040C0F4
 		public int type { get; set; }
 
-		// Token: 0x0600F0C0 RID: 61632 RVA: 0x003F5254 File Offset: 0x003F3454
+		// Token: 0x0600F81A RID: 63514 RVA: 0x0040DF00 File Offset: 0x0040C100
 		public void Parse(byte[] bytes, ref int byteIndex)
 		{
 			this.Desc = ByteUtil.ReadUTFByte(bytes, (int)ByteUtil.ReadUnsignedShort(bytes, ref byteIndex), ref byteIndex);

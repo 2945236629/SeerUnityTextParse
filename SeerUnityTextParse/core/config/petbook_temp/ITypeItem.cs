@@ -2,20 +2,20 @@
 
 namespace core.config.petbook_temp
 {
-	// Token: 0x02001F5B RID: 8027
+	// Token: 0x0200204E RID: 8270
 	public class ITypeItem
 	{
-		// Token: 0x17001C3F RID: 7231
-		// (get) Token: 0x0600F0D6 RID: 61654 RVA: 0x003F54E8 File Offset: 0x003F36E8
-		// (set) Token: 0x0600F0D7 RID: 61655 RVA: 0x003F54F0 File Offset: 0x003F36F0
+		// Token: 0x17001D23 RID: 7459
+		// (get) Token: 0x0600F830 RID: 63536 RVA: 0x0040E194 File Offset: 0x0040C394
+		// (set) Token: 0x0600F831 RID: 63537 RVA: 0x0040E19C File Offset: 0x0040C39C
 		public IBranchItem[] Branch { get; set; }
 
-		// Token: 0x17001C40 RID: 7232
-		// (get) Token: 0x0600F0D8 RID: 61656 RVA: 0x003F54F9 File Offset: 0x003F36F9
-		// (set) Token: 0x0600F0D9 RID: 61657 RVA: 0x003F5501 File Offset: 0x003F3701
+		// Token: 0x17001D24 RID: 7460
+		// (get) Token: 0x0600F832 RID: 63538 RVA: 0x0040E1A5 File Offset: 0x0040C3A5
+		// (set) Token: 0x0600F833 RID: 63539 RVA: 0x0040E1AD File Offset: 0x0040C3AD
 		public int ID { get; set; }
 
-		// Token: 0x0600F0DA RID: 61658 RVA: 0x003F550C File Offset: 0x003F370C
+		// Token: 0x0600F834 RID: 63540 RVA: 0x0040E1B8 File Offset: 0x0040C3B8
 		public void Parse(byte[] bytes, ref int byteIndex)
 		{
 			if (ByteUtil.ReadBoolean(bytes, ref byteIndex))

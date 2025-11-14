@@ -2,30 +2,30 @@
 
 namespace core.config.petbook_temp
 {
-	// Token: 0x02001F59 RID: 8025
+	// Token: 0x0200204C RID: 8268
 	public class IRoot
 	{
-		// Token: 0x17001C39 RID: 7225
-		// (get) Token: 0x0600F0C6 RID: 61638 RVA: 0x003F538A File Offset: 0x003F358A
-		// (set) Token: 0x0600F0C7 RID: 61639 RVA: 0x003F5392 File Offset: 0x003F3592
+		// Token: 0x17001D1D RID: 7453
+		// (get) Token: 0x0600F820 RID: 63520 RVA: 0x0040E036 File Offset: 0x0040C236
+		// (set) Token: 0x0600F821 RID: 63521 RVA: 0x0040E03E File Offset: 0x0040C23E
 		public IHotPet HotPet { get; set; }
 
-		// Token: 0x17001C3A RID: 7226
-		// (get) Token: 0x0600F0C8 RID: 61640 RVA: 0x003F539B File Offset: 0x003F359B
-		// (set) Token: 0x0600F0C9 RID: 61641 RVA: 0x003F53A3 File Offset: 0x003F35A3
+		// Token: 0x17001D1E RID: 7454
+		// (get) Token: 0x0600F822 RID: 63522 RVA: 0x0040E047 File Offset: 0x0040C247
+		// (set) Token: 0x0600F823 RID: 63523 RVA: 0x0040E04F File Offset: 0x0040C24F
 		public IHotspot Hotspot { get; set; }
 
-		// Token: 0x17001C3B RID: 7227
-		// (get) Token: 0x0600F0CA RID: 61642 RVA: 0x003F53AC File Offset: 0x003F35AC
-		// (set) Token: 0x0600F0CB RID: 61643 RVA: 0x003F53B4 File Offset: 0x003F35B4
+		// Token: 0x17001D1F RID: 7455
+		// (get) Token: 0x0600F824 RID: 63524 RVA: 0x0040E058 File Offset: 0x0040C258
+		// (set) Token: 0x0600F825 RID: 63525 RVA: 0x0040E060 File Offset: 0x0040C260
 		public IMonsterItem[] Monster { get; set; }
 
-		// Token: 0x17001C3C RID: 7228
-		// (get) Token: 0x0600F0CC RID: 61644 RVA: 0x003F53BD File Offset: 0x003F35BD
-		// (set) Token: 0x0600F0CD RID: 61645 RVA: 0x003F53C5 File Offset: 0x003F35C5
+		// Token: 0x17001D20 RID: 7456
+		// (get) Token: 0x0600F826 RID: 63526 RVA: 0x0040E069 File Offset: 0x0040C269
+		// (set) Token: 0x0600F827 RID: 63527 RVA: 0x0040E071 File Offset: 0x0040C271
 		public IRecMintmark RecMintmark { get; set; }
 
-		// Token: 0x0600F0CE RID: 61646 RVA: 0x003F53D0 File Offset: 0x003F35D0
+		// Token: 0x0600F828 RID: 63528 RVA: 0x0040E07C File Offset: 0x0040C27C
 		public void Parse(byte[] bytes, ref int byteIndex)
 		{
 			if (ByteUtil.ReadBoolean(bytes, ref byteIndex))

@@ -2,11 +2,11 @@
 
 namespace core.config.petbook
 {
-	// Token: 0x02001F70 RID: 8048
+	// Token: 0x02002063 RID: 8291
 	public class IRootInterface : ConfigBase<IRootInterface>
 	{
-		// Token: 0x17001C85 RID: 7301
-		// (get) Token: 0x0600F18C RID: 61836 RVA: 0x003F63CD File Offset: 0x003F45CD
+		// Token: 0x17001D67 RID: 7527
+		// (get) Token: 0x0600F8E2 RID: 63714 RVA: 0x0040F039 File Offset: 0x0040D239
 		public override string fileName
 		{
 			get
@@ -15,12 +15,12 @@ namespace core.config.petbook
 			}
 		}
 
-		// Token: 0x17001C86 RID: 7302
-		// (get) Token: 0x0600F18D RID: 61837 RVA: 0x003F63D4 File Offset: 0x003F45D4
-		// (set) Token: 0x0600F18E RID: 61838 RVA: 0x003F63DC File Offset: 0x003F45DC
+		// Token: 0x17001D68 RID: 7528
+		// (get) Token: 0x0600F8E3 RID: 63715 RVA: 0x0040F040 File Offset: 0x0040D240
+		// (set) Token: 0x0600F8E4 RID: 63716 RVA: 0x0040F048 File Offset: 0x0040D248
 		public IRoot root { get; set; }
 
-		// Token: 0x0600F18F RID: 61839 RVA: 0x003F63E5 File Offset: 0x003F45E5
+		// Token: 0x0600F8E5 RID: 63717 RVA: 0x0040F051 File Offset: 0x0040D251
 		public void Parse(byte[] bytes, ref int byteIndex)
 		{
 			if (ByteUtil.ReadBoolean(bytes, ref byteIndex))
@@ -30,7 +30,7 @@ namespace core.config.petbook
 			}
 		}
 
-		// Token: 0x0600F190 RID: 61840 RVA: 0x003F6408 File Offset: 0x003F4608
+		// Token: 0x0600F8E6 RID: 63718 RVA: 0x0040F074 File Offset: 0x0040D274
 		public override void Parse(byte[] bytes)
 		{
 			int num = 0;
