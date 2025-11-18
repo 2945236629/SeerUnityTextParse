@@ -2,7 +2,7 @@
 using System.Text.Encodings.Web;
 using System.Text.Json;
 
-const string FOLDER_PATH_RESOURSE = "C:\\Users\\17542\\Downloads\\game\\SeerSkin\\TextAsset\\";
+const string FOLDER_PATH_RESOURSE = "C:\\Users\\17542\\Downloads\\game\\SeerSkin\\TextAsset\\newseer\\assets\\game\\configs\\bytes\\";
 const string FOLDER_PATH_OUTPUT = "C:\\Users\\17542\\Downloads\\game\\SeerSkin\\json\\";
 
 byte[] ReadFileByte(string path)
@@ -20,7 +20,7 @@ byte[] ReadFileByte(string path)
     }
 }
 
-var serOpt = new JsonSerializerOptions() { Encoder = JavaScriptEncoder.Create(new System.Text.Unicode.UnicodeRange(0, 0x10000)), WriteIndented = true };
+var serOpt = new JsonSerializerOptions() { Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping, WriteIndented = true };
 
 if (!Directory.Exists(FOLDER_PATH_OUTPUT))
 {
@@ -78,7 +78,7 @@ foreach (var a in assemblies)
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine($"[{t.Name}]: {ex.Message}");
             }
         }
     }
