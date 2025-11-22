@@ -2,7 +2,7 @@
 using System.Text.Encodings.Web;
 using System.Text.Json;
 
-const string FOLDER_PATH_RESOURSE = "C:\\Users\\17542\\Downloads\\game\\SeerSkin\\TextAsset\\newseer\\assets\\game\\configs\\bytes\\";
+const string FOLDER_PATH_RESOURSE = "C:\\Users\\17542\\Downloads\\game\\SeerSkin\\TextAsset\\";
 const string FOLDER_PATH_OUTPUT = "C:\\Users\\17542\\Downloads\\game\\SeerSkin\\json\\";
 
 byte[] ReadFileByte(string path)
@@ -27,23 +27,6 @@ if (!Directory.Exists(FOLDER_PATH_OUTPUT))
     Directory.CreateDirectory(FOLDER_PATH_OUTPUT);
 }
 
-// 解析出错的加入黑名单
-HashSet<string> blackListName = [
-    "ChapterpointTemp",
-    "NewMonsterLevelTemp",
-    "PvpBanExpert",
-    "PvpVote",
-    "Redbadge",
-    ];
-HashSet<string> blackListNameSpace = [
-    "core.config.petbook_temp",
-    "core.config.petbook_bisaifu",
-    "core.config.petbook",
-    "core.config.itemsOptimizeCatItems26",
-    "core.config.battle_effects",
-    "core.config.aimat",
-    ];
-
 var assemblies = AppDomain.CurrentDomain.GetAssemblies();
 foreach (var a in assemblies)
 {
@@ -52,7 +35,6 @@ foreach (var a in assemblies)
     {
         if (!t.IsAbstract && t.Namespace != null && t.Namespace.StartsWith("core.config"))
         {
-            if (blackListName.Contains(t.Name) || blackListNameSpace.Contains(t.Namespace)) continue;
             try
             {
                 var obj = a.CreateInstance(t.FullName);
@@ -78,7 +60,7 @@ foreach (var a in assemblies)
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"[{t.Name}]: {ex.Message}");
+                Console.WriteLine($"[{t.FullName}]: {ex.Message}");
             }
         }
     }
