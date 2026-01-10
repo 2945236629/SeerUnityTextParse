@@ -1,180 +1,170 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿
+
+// GameLogic, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+// core.config.SuitXMLInfo
 using common;
+using core.config;
 using core.config.clothpos;
 using core.config.suit;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
+using UnityEngine;
 
-
-namespace core.config
+public class SuitXMLInfo : ConfigManagerSingleton<SuitXMLInfo>
 {
-	// Token: 0x02001EC0 RID: 7872
-	public class SuitXMLInfo : ConfigManagerSingleton<SuitXMLInfo>
-	{
-		// Token: 0x0600EB98 RID: 60312 RVA: 0x003EE3BA File Offset: 0x003EC5BA
-		
 
-		// Token: 0x0600EB99 RID: 60313 RVA: 0x003EE3E8 File Offset: 0x003EC5E8
-		
+    private Dictionary<int, IItemItem> s_DataMap;
 
-		// Token: 0x0600EB9A RID: 60314 RVA: 0x003EE3F8 File Offset: 0x003EC5F8
-		
+    private Dictionary<int, IItemItem> s_MapClothIdToSuitId = new Dictionary<int, IItemItem>(1931);
 
-		// Token: 0x0600EB9B RID: 60315 RVA: 0x003EE43C File Offset: 0x003EC63C
-		public int getSuitID(List<int> clothIDs)
-		{
-			int num = 0;
-			IItemItem itemItem = null;
-			for (int i = 0; i < clothIDs.Count; i++)
-			{
-				if (itemItem == null)
-				{
-					if (!this.s_MapClothIdToSuitId.TryGetValue(clothIDs[i], out itemItem))
-					{
-						if (!ResetableSingleTon<ItemXMLInfo>.Ins.gettype(clothIDs[i]).Equals("bg"))
-						{
-							return 0;
-						}
-						num = 1;
-					}
-				}
-				else if (!itemItem.cloths.Contains(clothIDs[i]))
-				{
-					if (num != 0 || !ResetableSingleTon<ItemXMLInfo>.Ins.gettype(clothIDs[i]).Equals("bg"))
-					{
-						return 0;
-					}
-					num = 1;
-				}
-			}
-			if (itemItem != null && clothIDs.Count == itemItem.cloths.Length + num)
-			{
-				return itemItem.id;
-			}
-			return 0;
-		}
+    public Dictionary<int, ClothposData> ClothposDic;
 
-		// Token: 0x0600EB9C RID: 60316 RVA: 0x003EE4F4 File Offset: 0x003EC6F4
-		public List<int> getSuitIDs(List<int> clothIDs)
-		{
-			if (clothIDs == null)
-			{
-				return null;
-			}
-			List<int> list = new List<int>();
-			foreach (int key in clothIDs)
-			{
-				int num = 0;
-				IItemItem itemItem;
-				if (this.s_MapClothIdToSuitId.TryGetValue(key, out itemItem) && list.IndexOf(itemItem.id) <= -1 && itemItem.cloths.Length != 0 && clothIDs.Count >= itemItem.cloths.Length)
-				{
-					foreach (int item in itemItem.cloths)
-					{
-						if (clothIDs.IndexOf(item) == -1)
-						{
-							break;
-						}
-						num++;
-					}
-					if (num == itemItem.cloths.Length)
-					{
-						list.Add(itemItem.id);
-					}
-				}
-			}
-			return list;
-		}
+    protected void OnReset()
+    {
+        s_DataMap?.Clear();
+        s_MapClothIdToSuitId.Clear();
+        ClothposDic?.Clear();
+    }
 
-		// Token: 0x0600EB9D RID: 60317 RVA: 0x003EE5D8 File Offset: 0x003EC7D8
-		public bool getIsTransform(int id)
-		{
-			IItemItem itemItem;
-			return this.s_DataMap.TryGetValue(id, out itemItem) && itemItem.transform == 1;
-		}
 
-		// Token: 0x0600EB9E RID: 60318 RVA: 0x003EE600 File Offset: 0x003EC800
-		public int[] getCloths(int id)
-		{
-			IItemItem itemItem;
-			if (!this.s_DataMap.TryGetValue(id, out itemItem))
-			{
-				return null;
-			}
-			return itemItem.cloths;
-		}
+    public int getSuitID(List<int> clothIDs)
+    {
+        int num = 0;
+        IItemItem value = null;
+        for (int i = 0; i < clothIDs.Count; i++)
+        {
+            if (value == null)
+            {
+                if (!s_MapClothIdToSuitId.TryGetValue(clothIDs[i], out value))
+                {
+                    if (!ResetableSingleTon<ItemXMLInfo>.Ins.gettype(clothIDs[i]).Equals("bg"))
+                    {
+                        return 0;
+                    }
+                    num = 1;
+                }
+            }
+            else if (!value.cloths.Contains(clothIDs[i]))
+            {
+                if (num != 0 || !ResetableSingleTon<ItemXMLInfo>.Ins.gettype(clothIDs[i]).Equals("bg"))
+                {
+                    return 0;
+                }
+                num = 1;
+            }
+        }
+        if (value != null && clothIDs.Count == value.cloths.Length + num)
+        {
+            return value.id;
+        }
+        return 0;
+    }
 
-		// Token: 0x0600EB9F RID: 60319 RVA: 0x003EE628 File Offset: 0x003EC828
-		public float getSuitTranSpeed(int id)
-		{
-			IItemItem itemItem;
-			if (!this.s_DataMap.TryGetValue(id, out itemItem))
-			{
-				return 4f;
-			}
-			return itemItem.tranSpeed;
-		}
+    public List<int> getSuitIDs(List<int> clothIDs)
+    {
+        if (clothIDs == null)
+        {
+            return null;
+        }
+        List<int> list = new List<int>();
+        int num = 0;
+        foreach (int clothID in clothIDs)
+        {
+            num = 0;
+            if (!s_MapClothIdToSuitId.TryGetValue(clothID, out var value) || list.IndexOf(value.id) > -1 || value.cloths.Length == 0 || clothIDs.Count < value.cloths.Length)
+            {
+                continue;
+            }
+            int[] cloths = value.cloths;
+            foreach (int item in cloths)
+            {
+                if (clothIDs.IndexOf(item) == -1)
+                {
+                    break;
+                }
+                num++;
+            }
+            if (num == value.cloths.Length)
+            {
+                list.Add(value.id);
+            }
+        }
+        return list;
+    }
 
-		// Token: 0x0600EBA0 RID: 60320 RVA: 0x003EE654 File Offset: 0x003EC854
-		public string getName(int id)
-		{
-			IItemItem itemItem;
-			if (!this.s_DataMap.TryGetValue(id, out itemItem))
-			{
-				return string.Empty;
-			}
-			return itemItem.name;
-		}
+    public bool getIsTransform(int id)
+    {
+        if (s_DataMap.TryGetValue(id, out var value))
+        {
+            return value.transform == 1;
+        }
+        return false;
+    }
 
-		// Token: 0x0600EBA1 RID: 60321 RVA: 0x003EE680 File Offset: 0x003EC880
-		public string getSuitNormalDesc(int id)
-		{
-			IItemItem itemItem;
-			if (!this.s_DataMap.TryGetValue(id, out itemItem))
-			{
-				return string.Empty;
-			}
-			return itemItem.suitdes;
-		}
+    public int[] getCloths(int id)
+    {
+        if (!s_DataMap.TryGetValue(id, out var value))
+        {
+            return null;
+        }
+        return value.cloths;
+    }
 
-		// Token: 0x0600EBA2 RID: 60322 RVA: 0x003EE6AC File Offset: 0x003EC8AC
-		public int getSuitIdByClothId(int clothId)
-		{
-			IItemItem itemItem;
-			if (!this.s_MapClothIdToSuitId.TryGetValue(clothId, out itemItem))
-			{
-				return 0;
-			}
-			return itemItem.id;
-		}
+    public float getSuitTranSpeed(int id)
+    {
+        if (!s_DataMap.TryGetValue(id, out var value))
+        {
+            return 4f;
+        }
+        return value.tranSpeed;
+    }
 
-		// Token: 0x0600EBA3 RID: 60323 RVA: 0x003EE6D4 File Offset: 0x003EC8D4
-		public List<int> getSuitIdByClothId(int[] arrClothId)
-		{
-			List<int> list = new List<int>();
-			foreach (int key in arrClothId)
-			{
-				IItemItem itemItem;
-				if (this.s_MapClothIdToSuitId.TryGetValue(key, out itemItem) && !list.Contains(itemItem.id))
-				{
-					list.Add(itemItem.id);
-				}
-			}
-			return list;
-		}
+    public string getName(int id)
+    {
+        if (!s_DataMap.TryGetValue(id, out var value))
+        {
+            return string.Empty;
+        }
+        return value.name;
+    }
 
-		// Token: 0x0600EBA4 RID: 60324 RVA: 0x003EE728 File Offset: 0x003EC928
-		public int[] getAllSuitIds()
-		{
-			return this.s_DataMap.Keys.ToArray<int>();
-		}
+    public string getSuitNormalDesc(int id)
+    {
+        if (!s_DataMap.TryGetValue(id, out var value))
+        {
+            return string.Empty;
+        }
+        return value.suitdes;
+    }
 
-		// Token: 0x0400EEF4 RID: 61172
-		private Dictionary<int, IItemItem> s_DataMap;
+    public int getSuitIdByClothId(int clothId)
+    {
+        if (!s_MapClothIdToSuitId.TryGetValue(clothId, out var value))
+        {
+            return 0;
+        }
+        return value.id;
+    }
 
-		// Token: 0x0400EEF5 RID: 61173
-		private Dictionary<int, IItemItem> s_MapClothIdToSuitId = new Dictionary<int, IItemItem>(1931);
+    public List<int> getSuitIdByClothId(int[] arrClothId)
+    {
+        List<int> list = new List<int>();
+        foreach (int key in arrClothId)
+        {
+            if (s_MapClothIdToSuitId.TryGetValue(key, out var value) && !list.Contains(value.id))
+            {
+                list.Add(value.id);
+            }
+        }
+        return list;
+    }
 
-		// Token: 0x0400EEF6 RID: 61174
-		public Dictionary<int, ClothposData> ClothposDic;
-	}
+    public int[] getAllSuitIds()
+    {
+        return s_DataMap.Keys.ToArray();
+    }
 }

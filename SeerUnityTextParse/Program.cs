@@ -35,32 +35,34 @@ foreach (var a in assemblies)
     {
         if (!t.IsAbstract && t.Namespace != null && t.Namespace.StartsWith("core.config"))
         {
+            object obj;
             try
             {
-                var obj = a.CreateInstance(t.FullName);
-                var prop = obj.GetType().GetProperty("fileName");
-                if (prop == null) continue;
-                var fileName = prop.GetValue(obj);
-                var data = ReadFileByte($"{FOLDER_PATH_RESOURSE}{fileName}.bytes");
-                if (data == null) continue;
-                var methods = obj.GetType().GetMethods();
-                foreach (var m in methods)
-                {
-                    if (m.Name == "Parse" && m.GetParameters().Length == 1)
-                    {
-                        m.Invoke(obj, [data]);
-                        var getItems = obj.GetType().GetMethod("getItems");
-                        File.WriteAllText($"{FOLDER_PATH_OUTPUT}{fileName}.json",
-                            JsonSerializer.Serialize(
-                                getItems == null ? obj : getItems.Invoke(obj, [])
-                            , serOpt));
-                        break;
-                    }
-                }
+                obj = a.CreateInstance(t.FullName);
             }
-            catch (Exception ex)
+            catch(Exception e)
             {
-                Console.WriteLine($"[{t.FullName}]: {ex.Message}");
+                // 创建对象失败
+                continue;
+            }
+            var prop = obj.GetType().GetProperty("fileName");
+            if (prop == null) continue;
+            var fileName = prop.GetValue(obj);
+            var data = ReadFileByte($"{FOLDER_PATH_RESOURSE}{fileName}.bytes");
+            if (data == null) continue;
+            var methods = obj.GetType().GetMethods();
+            foreach (var m in methods)
+            {
+                if (m.Name == "Parse" && m.GetParameters().Length == 1)
+                {
+                    m.Invoke(obj, [data]);
+                    var getItems = obj.GetType().GetMethod("getItems");
+                    File.WriteAllText($"{FOLDER_PATH_OUTPUT}{fileName}.json",
+                        JsonSerializer.Serialize(
+                            getItems == null ? obj : getItems.Invoke(obj, [])
+                        , serOpt));
+                    break;
+                }
             }
         }
     }
