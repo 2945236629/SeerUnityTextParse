@@ -35,6 +35,10 @@ foreach (var a in assemblies)
     {
         if (!t.IsAbstract && t.Namespace != null && t.Namespace.StartsWith("core.config"))
         {
+            if (t.FullName.Contains("SuitXMLInfo"))
+            {
+                Console.WriteLine();
+            }
             object obj;
             try
             {

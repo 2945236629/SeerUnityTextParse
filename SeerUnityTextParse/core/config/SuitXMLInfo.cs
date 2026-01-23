@@ -12,7 +12,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using UnityEngine;
+//using UnityEngine;
 
 public class SuitXMLInfo : ConfigManagerSingleton<SuitXMLInfo>
 {
